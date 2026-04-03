@@ -1116,10 +1116,10 @@ input, select, textarea {
 
 #bg:after {
     background-image: url("images/Space.jpg") !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    opacity: 1 !important; /* Ensures the image isn't too transparent */
 }
 
 
