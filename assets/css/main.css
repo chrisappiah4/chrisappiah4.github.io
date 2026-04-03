@@ -1115,7 +1115,7 @@ input, select, textarea {
 /* BG */
 
 #bg:after {
-    background-image: url("../../images/Space.jpg") !important;
+    background-image: url("../../images/Mars.jpg") !important;
 }
 
 
@@ -1677,7 +1677,7 @@ input, select, textarea {
 
 /* This targets the actual background layer used by the template */
 #bg:after {
-    background-image: url("../../images/Space.jpg") !important;
+    background-image: url("../../images/Mars.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
