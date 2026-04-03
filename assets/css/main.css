@@ -1115,12 +1115,10 @@ input, select, textarea {
 /* BG */
 
 #bg:after {
-    background-image: url("images/Space.jpg") !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    opacity: 1 !important; /* Ensures the image isn't too transparent */
+    background-image: url("../../images/Space.jpg") !important;
 }
+
+
 
 
 	#bg {
@@ -1676,3 +1674,18 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* This targets the actual background layer used by the template */
+#bg:after {
+    background-image: url("../../images/Space.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    opacity: 1 !important; /* Ensures the image is fully visible */
+}
+
+/* Optional: If the screen is still too dark, lighten the overlay gradient */
+#bg:before {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)) !important;
+}
+
