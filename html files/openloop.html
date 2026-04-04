@@ -8,6 +8,34 @@
 </head>
 <body class="is-preload"> <!-- 'is-preload' triggers the opening animation -->
 
+    <head>
+    ...
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        /* Force the content to be visible */
+        #main { opacity: 1 !important; display: block !important; }
+        #main article { display: block !important; opacity: 1 !important; }
+        
+        /* Force the background blur seen in the original theme */
+        #wrapper.is-article #bg:after {
+            opacity: 1 !important;
+        }
+        #bg:after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.25); /* Darkens bg */
+            backdrop-filter: blur(8px); /* Blurs bg */
+            -webkit-backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+
+
     <div id="wrapper">
         <!-- The BG div is what typically gets blurred by the theme's CSS -->
         <div id="bg"></div>
