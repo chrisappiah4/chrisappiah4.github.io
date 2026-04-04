@@ -259,23 +259,6 @@ input, select, textarea {
 		padding: 0.5rem 0 0.5rem 2rem;
 	}
 
-	body {
-    /* Replace 'background.jpg' with your image path */
-    background-image: url('images/Space.jpg');
-    
-    /* Ensures the image covers the entire screen */
-    background-size: cover;
-    
-    /* Centers the image */
-    background-position: center;
-    
-    /* Prevents the image from repeating */
-    background-repeat: no-repeat;
-    
-    /* Fixes the image so it doesn't scroll with the page */
-    background-attachment: fixed;
-}
-
 	pre {
 		-webkit-overflow-scrolling: touch;
 		font-family: "Courier New", monospace;
