@@ -3,18 +3,40 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!-- Link to the original CSS files -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
-<body>
-    <h2>Sortation Machine Final Report</h2>
-    <p>Short description of the project goes here...</p>
-    
-    <!-- Link to the PDF, which now opens in a new tab -->
-    <a href="Sortation Machine - Final Report.pdf" target="_blank" rel="noopener noreferrer">
-        View Project PDF
-    </a>
+
+<body class="is-preload"> <!-- 'is-preload' triggers the opening animation -->
+
+    <div id="wrapper">
+        <!-- The BG div is what typically gets blurred by the theme's CSS -->
+        <div id="bg"></div>
+
+        <div id="main">
+            <!-- The 'active' class makes this section visible and triggers background effects -->
+            <article id="project-details" class="active">
+                <h2 class="major">Trajectory Tracking</h2>
+                <p>Multicopter dynamics derivation and simulation for an unideal system (open loop control).</p>
+                
+                <ul class="actions">
+                    <!-- Ensure 'Example Project.pdf' is uploaded to your repo -->
+                    <li><a href="Sortation Machine - Final Report.pdf" target="_blank" class="button primary">View Project PDF</a></li>
+                    <li><a href="index.html#work" class="button">Back to Portfolio</a></li>
+                </ul>
+            </article>
+        </div>
+
+        <footer id="footer">
+            <p class="copyright">&copy; Your Name. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </footer>
+    </div>
+    <!-- These scripts are REQUIRED to remove 'is-preload' and apply the blur -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
