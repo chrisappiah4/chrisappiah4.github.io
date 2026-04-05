@@ -1672,3 +1672,41 @@ input, select, textarea {
     background-image: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)) !important;
 }
 
+/* --- Project Grid Styles --- */
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+
+.project-item {
+    flex: 0 1 calc(50% - 10px); /* 2 columns */
+    text-decoration: none;
+    border-bottom: none !important; /* Removes the theme's dotted line */
+    margin-bottom: 1rem;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 0 !important; /* Removes the 1px solid #ddd border */
+    padding: 0 !important; /* Removes the 5px padding */
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.project-item:hover img {
+    opacity: 0.8;
+}
+
+/* Mobile: 1 column */
+@media screen and (max-width: 736px) {
+    .project-item {
+        flex: 0 1 100%;
+    }
+}
+
