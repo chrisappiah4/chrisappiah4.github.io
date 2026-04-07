@@ -1672,7 +1672,7 @@ input, select, textarea {
     background-image: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* --- Project Grid Styles --- */
+
 /* Project Grid Styling */
 .project-grid {
     display: grid;
@@ -1717,3 +1717,33 @@ input, select, textarea {
     margin-top: 0.75rem;
     line-height: 1.2;
 }
+
+/* target ONLY the work section to avoid breaking other pages */
+#work {
+    min-height: 0 !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tighten the space specifically inside the work article */
+#work.active {
+    padding-bottom: 1.5rem !important; /* Reduces the gap at the bottom */
+}
+
+/* Remove the broad rule that broke About/Contact sections */
+/* DELETE or COMMENT OUT your previous "#main article" rule */
+
+/* Adjust the grid's vertical footprint */
+.project-grid {
+    margin: 1rem 0 !important; /* Smaller top/bottom margin */
+    padding-bottom: 0 !important;
+}
+
+/* Ensure the 'Close' button stays reachable without massive gaps */
+#main article .close {
+    position: relative;
+    top: 0;
+    margin-top: 1.5rem;
+}
+
