@@ -1674,65 +1674,31 @@ input, select, textarea {
 
 /* --- Project Grid Styles --- */
 
-/* Project Grid Styling */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-@media screen and (min-width: 736px) {
-    .project-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
-    }
-}
-
-.project-grid a {
-    display: block;
-    border-bottom: none; /* Removes the dotted line from the template */
-    text-align: center;
-}
-
-.project-grid img {
-    width: 100%;
-    height: 200px; /* Forces uniform height */
-    object-fit: cover; /* Crops image to fit without stretching */
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.2s ease-in-out, border-color 0.2s;
-}
-
-.project-grid img:hover {
-    transform: scale(1.05);
-    border-color: #ffffff;
-}
-
-/* Caption Styling */
-.project-caption {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    margin-top: 0.75rem;
-    line-height: 1.2;
-}
-
-/* Fix for excessive space at the bottom of the section */
+/* target ONLY the work section to avoid breaking other pages */
 #work {
-    min-height: 0 !important;   /* Overrides the template's forced minimum height */
-    height: auto !important;     /* Ensures it only grows as tall as the content */
-    padding-bottom: 2rem !important; /* Sets a clean, small gap at the bottom */
+    min-height: 0 !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Ensure the main container doesn't stretch small sections */
-#main article {
-    justify-content: flex-start !important; /* Prevents vertical centering that leaves gaps below */
+/* Tighten the space specifically inside the work article */
+#work.active {
+    padding-bottom: 1.5rem !important; /* Reduces the gap at the bottom */
 }
 
-/* Removes template-specific margin on the last item in the grid */
-.project-grid:last-child {
-    margin-bottom: 0 !important;
+/* Remove the broad rule that broke About/Contact sections */
+/* DELETE or COMMENT OUT your previous "#main article" rule */
+
+/* Adjust the grid's vertical footprint */
+.project-grid {
+    margin: 1rem 0 !important; /* Smaller top/bottom margin */
+    padding-bottom: 0 !important;
 }
 
+/* Ensure the 'Close' button stays reachable without massive gaps */
+#main article .close {
+    position: relative;
+    top: 0;
+    margin-top: 1.5rem;
+}
