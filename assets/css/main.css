@@ -1676,18 +1676,12 @@ input, select, textarea {
 /* Project Grid Styling */
 /* Container for the 2x2 or 4x1 grid */
 /* Container for the Grid */
+/* Container for the Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Forces 2 columns like your image */
-    gap: 3rem 2rem; /* More vertical space for the captions */
-    margin: 2rem 0;
-}
-
-/* On mobile, stay 2 columns or drop to 1 if you prefer */
-@media screen and (max-width: 480px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns to match your design */
+    gap: 1.5rem 1rem; /* Significantly reduced vertical gap */
+    margin: 1.5rem 0;
 }
 
 .project-grid a {
@@ -1699,32 +1693,41 @@ input, select, textarea {
 
 .project-grid img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Keeps all cards exactly the same shape */
-    object-fit: contain; /* Ensures diagrams aren't cropped */
+    /* Use a fixed, shorter height to prevent scrolling */
+    height: 150px; 
     
-    background-color: #ffffff; /* The white card background */
-    padding: 1.5rem; /* Space between image and card edge */
-    border-radius: 8px; /* Slightly more rounded like your image */
+    /* "cover" makes the Sortation Machine hit the borders perfectly */
+    object-fit: cover; 
     
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    background-color: #ffffff;
+    padding: 0; 
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease;
 }
 
-.project-grid a:hover img {
-    transform: scale(1.02); /* Very slight grow on hover */
+/* Individual override for diagrams so they don't get cropped by 'cover' */
+/* Note: Add 'class="diagram"' to your pendulum and drone img tags in HTML */
+.project-grid img.diagram {
+    object-fit: contain;
+    padding: 10px; /* Gives diagrams a little breathing room inside the white */
 }
 
-/* Caption styling to match your reference image exactly */
+.project-grid a:hover img {
+    transform: scale(1.03);
+}
+
+/* More compact caption styling */
 .project-caption {
     display: block;
-    margin-top: 1.25rem;
+    margin-top: 0.75rem; /* Tighter gap between image and text */
     
-    font-size: 0.8rem;
+    font-size: 0.65rem; /* Smaller font to save space */
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.2rem; /* Spread out letters like the image */
+    letter-spacing: 0.15rem; /* Reduced letter spacing to prevent multi-line wrap */
     color: #ffffff;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 
 
