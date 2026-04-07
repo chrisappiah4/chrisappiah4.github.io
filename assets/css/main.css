@@ -1718,3 +1718,21 @@ input, select, textarea {
     margin-top: 0.75rem;
     line-height: 1.2;
 }
+
+/* Fix for excessive space at the bottom of the section */
+#work {
+    min-height: 0 !important;   /* Overrides the template's forced minimum height */
+    height: auto !important;     /* Ensures it only grows as tall as the content */
+    padding-bottom: 2rem !important; /* Sets a clean, small gap at the bottom */
+}
+
+/* Ensure the main container doesn't stretch small sections */
+#main article {
+    justify-content: flex-start !important; /* Prevents vertical centering that leaves gaps below */
+}
+
+/* Removes template-specific margin on the last item in the grid */
+.project-grid:last-child {
+    margin-bottom: 0 !important;
+}
+
