@@ -8,8 +8,6 @@
     <style>
         /* Force Display Fix */
         #wrapper { 
-            display: flex !important; 
-            opacity: 1; 
             transition: opacity 0.325s ease-in-out; 
         }
         #main { 
@@ -51,7 +49,8 @@
             border-radius: 100%;
             background-position: center;
             background-repeat: no-repeat;
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+            /* FIXED URL: http://w3.org */
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
         }
 
         #main article .close-link:hover:before { background-color: rgba(255, 255, 255, 0.1); }
@@ -72,9 +71,21 @@
             transition: opacity 0.4s ease;
         }
         #bg.fade-out:after { opacity: 0 !important; }
+
+        /* Keep the background solid during the redirect to prevent the grey flash */
+#bg {
+    transition: opacity 0.5s ease !important;
+}
+
+#bg.fade-out:after {
+    opacity: 1 !important; /* Forces the blurred image to stay visible */
+    background-color: #1b1f22 !important; /* Matches your site background color */
+}
+
     </style>
 </head>
 
+ <body class="is-preload">
  <div id="wrapper">
         <div id="bg" onclick="smoothBack()"></div>
         <div id="main">
@@ -84,7 +95,7 @@
                 
                 <h2 class="major">Trajectory Tracking</h2>
                <p>Multicopter dynamics derivation and simulation for an unideal system(open loop control).</p>
-                <p>This project was completed for ENME 408-UAV Dynamics</p>
+                <p>This project was completed for ENME 430-UAV Dynamics</p>
                 
                 <ul class="actions">
                     <li><a href="ENME408_S26_Project01_Hardesty_Appiah.pdf" target="_blank" class="button primary">View Project PDF</a></li>
@@ -106,21 +117,22 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
    <script>
-        function smoothBack() {
-            var wrapper = document.getElementById('wrapper');
-            var bg = document.getElementById('bg');
-            var article = document.querySelector('#main article');
+function smoothBack() {
+    var wrapper = document.getElementById('wrapper');
+    var article = document.querySelector('#main article');
 
-            // Animation
-            article.style.opacity = '0';
-            article.style.transform = 'translateY(0.25rem)';
-            wrapper.style.opacity = '0';
-            bg.classList.add('fade-out');
+    // Matches Dimension's "Close" animation exactly
+    article.style.transform = 'translateY(0.25rem)';
+    article.style.opacity = '0';
+    
+    // Fade the whole page slightly slower to bridge the gap to index.html
+    wrapper.style.transition = 'opacity 0.4s ease';
+    wrapper.style.opacity = '0';
 
-            setTimeout(function() {
-                window.location.href = 'index.html#work';
-            }, 325);
-        }
+    setTimeout(function() {
+        window.location.href = 'index.html#work';
+    }, 350); // Small buffer to ensure animation completes
+}
 </script>
 
 </body>
