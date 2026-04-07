@@ -1740,10 +1740,36 @@ input, select, textarea {
     padding-bottom: 0 !important;
 }
 
-/* Ensure the 'Close' button stays reachable without massive gaps */
+/* Restores the Close button to the top right */
 #main article .close {
-    position: relative;
+    position: absolute;
     top: 0;
-    margin-top: 1.5rem;
+    right: 0;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    text-indent: 4rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#main article .close:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    background-position: center;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#main article .close:hover:before {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
