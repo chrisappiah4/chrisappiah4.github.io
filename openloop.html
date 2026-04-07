@@ -60,10 +60,22 @@
     }
 
         /* Ensure the page starts visible but can transition */
+/* Faster speed and matches theme movement */
 #wrapper {
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transform: translateY(0);
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
+
+/* Fix for the 'Grey' transition: keep the background visible longer */
+#bg:after {
+    transition: opacity 0.4s ease;
+}
+
+#bg.fade-out:after {
+    opacity: 0 !important;
+}
+
 
 /* Background: Remove the 'hand' cursor to keep it subtle */
 #bg {
@@ -94,7 +106,7 @@
                 <a href="index.html#work" class="close-link">Close</a>
                 <h2 class="major">Trajectory Tracking</h2>
                 <p>Multicopter dynamics derivation and simulation for an unideal system(open loop control).</p>
-                <p>This project was completed for ENME 410-UAV Dynamics</p>
+                <p>This project was completed for ENME 412-UAV Dynamics</p>
 
 
 
@@ -119,16 +131,23 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-    function smoothBack() {
-        // Triggers the fade-out
-        document.getElementById('wrapper').style.opacity = '0';
-        
-        // Wait 500ms for the CSS transition to finish, then redirect
-        setTimeout(function() {
-            window.location.href = 'index.html#work';
-        }, 500);
-    }
-    </script>
+   <script>
+function smoothBack() {
+    var wrapper = document.getElementById('wrapper');
+    var bg = document.getElementById('bg');
+
+    // 1. Add the "Slide and Fade" effect
+    wrapper.style.opacity = '0';
+    wrapper.style.transform = 'translateY(-2rem)';
+    
+    // 2. Start fading the background slightly after
+    bg.classList.add('fade-out');
+
+    // 3. Shortened delay (250ms) to match Dimension's fast feel
+    setTimeout(function() {
+        window.location.href = 'index.html#work';
+    }, 250);
+}
+</script>
 </body>
 </html>
