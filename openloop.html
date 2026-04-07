@@ -6,15 +6,31 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-        /* Force visibility and smooth transitions */
-        #main { opacity: 1 !important; display: block !important; }
-        #main article { display: block !important; opacity: 1 !important; position: relative; }
-        
-        #wrapper {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
-        }
+  /* Match the theme speed (0.325s) and movement (0.25rem) */
+    #wrapper {
+        opacity: 1;
+        transition: opacity 0.325s ease-in-out;
+    }
+
+    #main article {
+        display: block !important;
+        opacity: 1 !important;
+        position: relative;
+        /* Matches theme exact transitions */
+        transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out !important;
+    }
+
+    /* THE CURSOR FIX: This allows clicks to pass through the empty 
+       parts of the article container and hit the background #bg */
+    #main {
+        pointer-events: none;
+    }
+    #main article {
+        pointer-events: auto; /* Re-enables clicking inside the project window */
+    }
+
+    /* Use the standard cursor for background */
+    #bg { cursor: default !important; }
 
         /* The Base Close Button Styling */
         #main article .close-link {
@@ -84,7 +100,7 @@
                 <a href="javascript:void(0)" onclick="smoothBack()" class="close-link">Close</a>
                 <h2 class="major">Trajectory Tracking</h2>
                 <p>Multicopter dynamics derivation and simulation for an unideal system(open loop control).</p>
-                <p>This project was completed for ENME 408-UAV Dynamics</p>
+                <p>This project was completed for ENME 422-UAV Dynamics</p>
 
 
 
@@ -124,7 +140,7 @@ function smoothBack() {
     // 3. Shortened delay (250ms) to match Dimension's fast feel
     setTimeout(function() {
         window.location.href = 'index.html#work';
-    }, 250);
+    }, 325);
 }
 </script>
 </body>
