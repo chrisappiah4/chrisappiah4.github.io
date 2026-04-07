@@ -25,7 +25,7 @@
     }
 
     /* The X Icon with the FULL CORRECT URL */
-   #main article .close-link:before {
+  #main article .close-link:before {
     content: '';
     display: block;
     position: absolute;
@@ -36,11 +36,10 @@
     border-radius: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    /* This exact URL is required for the icon to appear: */
+    /* FIXED URL BELOW */
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
     z-index: 1001;
 }
-
 
     #main article .close-link:hover:before {
         background-color: rgba(255, 255, 255, 0.1);
@@ -59,12 +58,36 @@
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
     }
+
+        /* Ensure the page starts visible but can transition */
+#wrapper {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Background: Remove the 'hand' cursor to keep it subtle */
+#bg {
+    cursor: default !important;
+}
+
+/* Close Link: Keep the 'hand' cursor for the actual button */
+.close-link {
+    cursor: pointer !important;
+}
+
+/* Optional: Slight darken on background hover for subtle feedback */
+#bg:hover:after {
+    background-color: rgba(0, 0, 0, 0.35) !important;
+    transition: background-color 0.3s ease;
+}
+
 </style>
 </head>
 
 <body class="is-preload">
     <div id="wrapper">
-        <div id="bg" onclick="window.location.href='index.html#work'" style="cursor: pointer;"></div>
+        <!-- Background: Use 'default' cursor to match main site feel -->
+<div id="bg" onclick="smoothBack()" style="cursor: default;"></div>
         <div id="main">
             <article id="project-details" class="active">
                 <!-- SINGLE close button inside the article -->
@@ -96,5 +119,16 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+    function smoothBack() {
+        // Triggers the fade-out
+        document.getElementById('wrapper').style.opacity = '0';
+        
+        // Wait 500ms for the CSS transition to finish, then redirect
+        setTimeout(function() {
+            window.location.href = 'index.html#work';
+        }, 500);
+    }
+    </script>
 </body>
 </html>
