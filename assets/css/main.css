@@ -1674,6 +1674,7 @@ input, select, textarea {
 
 
 /* Project Grid Styling */
+/* Container for the 2x2 or 4x1 grid */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
@@ -1689,34 +1690,41 @@ input, select, textarea {
 
 .project-grid a {
     display: block;
-    border-bottom: none; /* Removes the dotted line from the template */
-    text-align: center;
+    text-decoration: none;
+    border-bottom: none !important;
 }
 
 .project-grid img {
     width: 100%;
-    height: 200px; /* Forces uniform height */
-    object-fit: cover; /* Crops image to fit without stretching */
+    height: 180px; /* Forces all cards to be the same height */
+    
+    /* These three lines create the "White Card" look from your image */
+    background: #ffffff; 
+    object-fit: contain; 
+    padding: 10px; 
+    
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform 0.2s ease-in-out, border-color 0.2s;
 }
 
 .project-grid img:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px); /* Gentle "lift" effect when hovering */
     border-color: #ffffff;
 }
 
-/* Caption Styling */
+/* Caption styling to match the theme */
 .project-caption {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     margin-top: 0.75rem;
-    line-height: 1.2;
+    text-align: center;
+    color: #ffffff;
 }
+
 
 /* target ONLY the work section to avoid breaking other pages */
 #work {
