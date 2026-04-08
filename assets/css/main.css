@@ -1673,58 +1673,37 @@ input, select, textarea {
 }
 
 
-/* Note: Add 'class="diagram"' to your pendulum and drone img tags in HTML */
-.project-grid img.diagram {
-    object-fit: contain;
-    padding: 10px; /* Gives diagrams a little breathing room inside the white */
+/* 1. General Rule: This makes the Sortation Machine fill the box perfectly */
+.project-grid img {
+    width: 100%;
+    height: 250px;       /* Keeps all thumbnails the same height */
+    object-fit: cover;   /* This makes the image 'fill' the space */
+    background-color: #ffffff;
+    padding: 0;          /* No padding so it touches the edges */
+    display: block;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
 }
 
+/* 2. Diagram Override: Keeps white background but shows the FULL drawing */
+.project-grid img.diagram {
+    object-fit: contain !important; /* Shows the full diagram without cropping */
+    padding: 15px !important;       /* Gives diagrams breathing room inside the white box */
+}
+
+/* 3. Hover Effect */
 .project-grid a:hover img {
     transform: scale(1.03);
 }
 
-/* More compact caption styling */
+/* 4. Caption Styling */
 .project-caption {
     display: block;
-    margin-top: 0.75rem; /* Tighter gap between image and text */
-    
-    font-size: 0.65rem; /* Smaller font to save space */
+    margin-top: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15rem; /* Reduced letter spacing to prevent multi-line wrap */
+    letter-spacing: 0.15rem;
     color: #ffffff;
     line-height: 1.3;
-}
-
-
-
-/* target ONLY the work section to avoid breaking other pages */
-#work {
-    min-height: 0 !important;
-    height: auto !important;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Tighten the space specifically inside the work article */
-#work.active {
-    padding-bottom: 1.5rem !important; /* Reduces the gap at the bottom */
-}
-
-/* Remove the broad rule that broke About/Contact sections */
-/* DELETE or COMMENT OUT your previous "#main article" rule */
-
-/* Adjust the grid's vertical footprint */
-.project-grid {
-    margin: 1rem 0 !important; /* Smaller top/bottom margin */
-    padding-bottom: 0 !important;
-}
-
-/* Ensure the native Close button is positioned correctly relative to our shorter section */
-#main article .close {
-    /* This ensures it stays pinned to the top right even with our custom heights */
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    z-index: 10;
 }
