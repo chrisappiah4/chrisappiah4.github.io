@@ -1,36 +1,65 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-        /* Force the content to be visible */
-        #main { opacity: 1 !important; display: block !important; }
-        #main article { display: block !important; opacity: 1 !important; }
+        /* Force content visibility */
+        #main { opacity: 1 !important; display: block !important; pointer-events: none; }
+        #main article { display: block !important; opacity: 1 !important; position: relative; pointer-events: auto; }
         
-        /* Force the background blur */
+        /* Force background blur */
+        #bg { cursor: default !important; }
         #bg:after {
             content: '';
             display: block;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Darkens bg for readability */
-            backdrop-filter: blur(8px); /* The blur effect */
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
+
+        /* The Close Button Styling (Instant) */
+        #main article .close-link {
+            position: absolute !important;
+            top: 0 !important; right: 0 !important;
+            width: 4rem; height: 4rem;
+            cursor: pointer !important;
+            z-index: 1000;
+            text-indent: 4rem;
+            overflow: hidden;
+            border-bottom: none !important;
+        }
+
+        /* The Visible X Icon */
+        #main article .close-link:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0.75rem; right: 0.75rem;
+            width: 2.5rem; height: 2.5rem;
+            border-radius: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+        }
+
+        #main article .close-link:hover:before { background-color: rgba(255, 255, 255, 0.1); }
     </style>
 </head>
 
 <body class="is-preload">
     <div id="wrapper">
-        <div id="bg"></div>
+        <!-- Instant Back on Background Click -->
+        <div id="bg" onclick="window.location.href='index.html#work'"></div>
         <div id="main">
             <article id="project-details" class="active">
+                <!-- THE X BUTTON -->
+                <a href="index.html#work" class="close-link">Close</a>
                 <h2 class="major">Sortation Machine</h2>
                 <p>An automated sortation machine that arranged three containers based on their material</p>
                 <p>This semester-long project was completed for ENME 464-Machine Design II</p>
@@ -52,4 +81,5 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
 
