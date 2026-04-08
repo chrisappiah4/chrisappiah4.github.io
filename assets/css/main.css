@@ -1673,37 +1673,49 @@ input, select, textarea {
 }
 
 
-/* 1. General Rule: This makes the Sortation Machine fill the box perfectly */
+/* Container for the Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1.5rem 1rem; 
+    margin: 1.5rem 0;
+}
+
+/* General Image Styling (Restores the 150px Cover look) */
 .project-grid img {
     width: 100%;
-    height: 250px;       /* Keeps all thumbnails the same height */
-    object-fit: cover;   /* This makes the image 'fill' the space */
+    height: 150px; /* Restored to your original shorter height */
+    object-fit: cover; /* Sortation Machine hits the borders perfectly */
     background-color: #ffffff;
-    padding: 0;          /* No padding so it touches the edges */
-    display: block;
-    border-radius: 4px;
+    padding: 0; 
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease;
+    display: block;
 }
 
-/* 2. Diagram Override: Keeps white background but shows the FULL drawing */
+/* Diagram Override (Restores the contained look for specific images) */
 .project-grid img.diagram {
-    object-fit: contain !important; /* Shows the full diagram without cropping */
-    padding: 15px !important;       /* Gives diagrams breathing room inside the white box */
+    object-fit: contain !important;
+    padding: 10px !important; /* Gives breathing room inside the white */
 }
 
-/* 3. Hover Effect */
+.project-grid a {
+    border-bottom: none !important; /* Removes default link underlines */
+}
+
 .project-grid a:hover img {
     transform: scale(1.03);
 }
 
-/* 4. Caption Styling */
+/* More compact caption styling */
 .project-caption {
     display: block;
-    margin-top: 0.75rem;
-    font-size: 0.65rem;
+    margin-top: 0.75rem; 
+    font-size: 0.65rem; 
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.15rem; 
     color: #ffffff;
     line-height: 1.3;
 }
