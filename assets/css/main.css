@@ -1673,51 +1673,28 @@ input, select, textarea {
 }
 
 
-/* 1. The Container: Force dark background so "contain" gaps are dark */
-.project-grid a {
-    background-color: #1b1f22 !important;
-    display: block;
-    overflow: hidden;
-    border-bottom: none !important;
-    border-radius: 6px; /* Moved from img to a for a cleaner look */
-}
-
-/* 2. Standard Images (Like Sortation Machine) */
-.project-grid img {
-    width: 100%;
-    height: 150px; 
-    object-fit: cover; 
-    display: block;
-    margin: 0;
-    transition: transform 0.2s ease;
-    /* Removed white background from here */
-}
-
-/* 3. Diagram Overrides (Like Pendulum/Drone) */
-/* We place this AFTER the standard img rule so it takes priority */
+/* Note: Add 'class="diagram"' to your pendulum and drone img tags in HTML */
 .project-grid img.diagram {
-    height: 250px !important; /* Taller for diagrams */
-    object-fit: contain !important; 
-    background-color: #1b1f22 !important; /* Dark background inside the image */
-    padding: 10px; 
+    object-fit: contain;
+    padding: 10px; /* Gives diagrams a little breathing room inside the white */
 }
 
-/* 4. Effects and Captions */
 .project-grid a:hover img {
     transform: scale(1.03);
 }
 
+/* More compact caption styling */
 .project-caption {
     display: block;
-    margin-top: 0.75rem;
-    font-size: 0.65rem;
+    margin-top: 0.75rem; /* Tighter gap between image and text */
+    
+    font-size: 0.65rem; /* Smaller font to save space */
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.15rem; /* Reduced letter spacing to prevent multi-line wrap */
     color: #ffffff;
     line-height: 1.3;
 }
-
 
 
 
