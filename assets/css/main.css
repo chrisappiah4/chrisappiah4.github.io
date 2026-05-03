@@ -1719,3 +1719,25 @@ input, select, textarea {
     color: #ffffff;
     line-height: 1.3;
 }
+
+/* Fix for the overflowing Project Title */
+#main article h2.major {
+    width: 100%;
+    white-space: normal;      /* Allows text to wrap to a new line */
+    overflow-wrap: break-word; /* Prevents long words from breaking the layout */
+    line-height: 1.5;         /* Adds space between lines when wrapped */
+    margin-bottom: 2rem;      /* Keeps spacing consistent */
+}
+
+/* Adjustments for Mobile Screens */
+@media screen and (max-width: 736px) {
+    #main article {
+        padding: 3.5rem 1.5rem 1rem 1.5rem !important; /* Reduces side padding */
+    }
+
+    #main article h2.major {
+        font-size: 1.25rem;    /* Shrinks font slightly for small screens */
+        letter-spacing: 0.15rem; /* Reduces letter spacing to save horizontal space */
+    }
+}
+
